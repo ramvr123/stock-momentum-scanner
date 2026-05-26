@@ -450,6 +450,13 @@ def main() -> None:
     if not check_password():
         st.stop()
 
+    # Logout button in top right corner
+    col_logout = st.columns([8, 1])[1]
+    with col_logout:
+        if st.button("🔒 Logout"):
+            st.session_state["authenticated"] = False
+            st.rerun()
+
     st.markdown("## 📈 Daily Post-Market Momentum Scanner")
     st.markdown(
         "<p style='color:#5b7fa6; font-size:0.82rem; margin-top:-6px; margin-bottom:10px;'>"
